@@ -57,26 +57,71 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://frenchexcel.org/#organization",
-          name: "French Excel",
-          url: "https://frenchexcel.org/",
-          logo: "https://frenchexcel.org/French_Excel_Logo.png",
+          "@type": "Course",
+          name: "French Exam Preparation — TEF, TCF, DELF & DALF",
           description:
-            "Online French exam preparation for TEF, TCF and DELF with native French teachers.",
+            "Online French classes and exam preparation for TEF Canada, TCF Canada, TCF Tout Public, DELF and DALF with native French-speaking teachers. Personalised lessons, exam-style practice, mock tests and detailed feedback.",
+          url: "https://frenchexcel.org/",
+          inLanguage: "en",
+          teaches:
+            "French language and TEF, TCF, DELF and DALF exam strategy",
+          educationalLevel: "A1 to C1 (CEFR)",
+          provider: { "@id": "https://frenchexcel.org/#organization" },
+          offers: {
+            "@type": "Offer",
+            category: "Online French exam preparation",
+            priceCurrency: "CAD",
+            price: "150",
+            availability: "https://schema.org/InStock",
+            url: "https://frenchexcel.org/#packages",
+          },
+          hasCourseInstance: {
+            "@type": "CourseInstance",
+            courseMode: "online",
+            courseWorkload: "PT5H",
+            inLanguage: "fr",
+          },
         }),
       },
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          "@id": "https://frenchexcel.org/#website",
-          url: "https://frenchexcel.org/",
-          name: "French Excel",
-          publisher: {
-            "@id": "https://frenchexcel.org/#organization",
-          },
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "How are the lessons delivered?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Every lesson is one-to-one over video call, scheduled around your timezone. You receive a written summary and homework after each session.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can I split payment across a package?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Packages of 12 sessions or more can be paid in two or three instalments — just mention it when you book.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What if I need to reschedule?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sessions can be moved free of charge with 24 hours' notice. Unused sessions stay valid for six months.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which exam should I take?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "TEF and TCF are the usual choice for Canadian immigration; DELF/DALF is a lifetime diploma often required for study. We help you settle this before you enroll.",
+              },
+            },
+          ],
         }),
       },
     ],

@@ -10,6 +10,7 @@ export const Route = createFileRoute("/thank-you")({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "robots", content: "noindex, follow" },
       {
         property: "og:title",
         content: title,

@@ -24,6 +24,14 @@ export const Route = createFileRoute("/tef-canada")({
         property: "og:image",
         content: "https://frenchexcel.org/og-image.png",
       },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      {
+        property: "og:image:alt",
+        content: "French Excel — online TEF Canada preparation with native French teachers",
+      },
+      { property: "og:locale", content: "en_US" },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
@@ -31,6 +39,49 @@ export const Route = createFileRoute("/tef-canada")({
       {
         name: "twitter:image",
         content: "https://frenchexcel.org/og-image.png",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "TEF Canada Preparation — Online Classes",
+          description:
+            "Online TEF Canada preparation with personalised French classes, speaking and writing practice, listening and reading exercises, mock tests and detailed feedback from native French teachers.",
+          url: "https://frenchexcel.org/tef-canada",
+          inLanguage: "en",
+          teaches:
+            "TEF Canada exam strategy across speaking, writing, listening and reading",
+          provider: { "@id": "https://frenchexcel.org/#organization" },
+          hasCourseInstance: {
+            "@type": "CourseInstance",
+            courseMode: "online",
+            inLanguage: "fr",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://frenchexcel.org/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "TEF Canada Preparation",
+              item: "https://frenchexcel.org/tef-canada",
+            },
+          ],
+        }),
       },
     ],
     links: [

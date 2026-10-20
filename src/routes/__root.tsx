@@ -79,9 +79,63 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "robots",
+        content:
+          "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      { name: "theme-color", content: "#ffffff" },
+      {
+        name: "keywords",
+        content:
+          "French Excel, online French classes, TEF Canada preparation, TCF Canada, TCF Tout Public, DELF, DALF, French exam preparation, native French teachers, French for immigration, CLB 7, learn French online",
+      },
+      { name: "author", content: "French Excel" },
       { property: "og:site_name", content: "French Excel" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:image", content: "https://frenchexcel.org/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@frenchexcel" },
+      { name: "twitter:image", content: "https://frenchexcel.org/og-image.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "@id": "https://frenchexcel.org/#organization",
+          name: "French Excel",
+          alternateName: "French Excel — Online French Exam Preparation",
+          url: "https://frenchexcel.org/",
+          logo: "https://frenchexcel.org/French_Excel_Logo.png",
+          image: "https://frenchexcel.org/og-image.png",
+          email: "bonjour@frenchexcel.org",
+          description:
+            "Online French classes and TEF, TCF, DELF and DALF exam preparation with native French teachers.",
+          sameAs: [],
+          knowsLanguage: ["fr", "en"],
+          areaServed: {
+            "@type": "GeoShape",
+            name: "Worldwide",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://frenchexcel.org/#website",
+          url: "https://frenchexcel.org/",
+          name: "French Excel",
+          inLanguage: "en",
+          publisher: { "@id": "https://frenchexcel.org/#organization" },
+        }),
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
